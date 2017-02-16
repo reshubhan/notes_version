@@ -26,3 +26,13 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+Simple notes with “Rollback” feature
+    * It displays list of notes
+    * There is a “New note” button.
+    * Each note can be edited (No need of any WYSIWYG rich editors, just simple textarea)
+    * There is a “Save” button which saves note to database
+    * There is a “Versions” list under note with list of changes. It contains only Date and “Rollback” button.
+    * Every time you change a note clicking “Save”, new version is created in “Versions” list.
+    * When you click “Rollback” button, note’s content shall be rolled back to past version.
+

@@ -1,0 +1,39 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @note.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @note.body %>
+</p>
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>
+
+<p> <br><br>
+<h1>Previous Versions of Note </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @note.versions.each do |version| %>
+      <tr>
+        <td><%= version.title %></td>
+        <td><%= version.created_at.strftime("%d-%B-%y  %I:%M%p") %></td>
+        <td><%= version.body %></td>
+         <td><%= link_to "Rollback", rollback_path(:to => { :note_id => @note.id, :version_id => version.id }) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</p>
